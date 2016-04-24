@@ -8,6 +8,11 @@ import '../assets/app.less';
 import mainModule from './main/main';
 import Router from './router';
 
+if (process.env.NODE_ENV !== 'production') {
+  require('../index.html');
+  require('../page/detail.html');
+}
+
 var app = {
     init(){
         // Init App
@@ -19,7 +24,7 @@ var app = {
         myApp.addView('.view-main', {
             domCache: true
         });
-        
+        //alert(2);
         mainModule.init();
         Router.init();
     }
