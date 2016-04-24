@@ -14,13 +14,13 @@ module.exports = {
       hot: true,
       inline: true,
       progress: true,
-      contentBase: './src',
+      //contentBase: './dist', //将其运行目录设置为打包后的目录
       port: post
   },
   //devtool: 'source-map',
   entry: [
-      'webpack/hot/dev-server',
-      'webpack-dev-server/client?http://localhost:' + post,
+      //'webpack/hot/dev-server',
+      //'webpack-dev-server/client?http://localhost:' + post,
       //上面2个是开发的时候用的热替换服务器
       path.resolve(__dirname, 'src/app/index')
   ],
@@ -61,7 +61,7 @@ module.exports = {
   },
   plugins: [
       //热替换插件
-      new webpack.HotModuleReplacementPlugin(),
+      //new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html'
       }),

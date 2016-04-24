@@ -15,14 +15,16 @@ export default {
         });
         this.setAvatar(Constant.AVATAR);
         this.pushRefresh();
-        this.loadMore();
+        this.loadMore();        
+        //myApp.alert(1)
+
     },
     getTopics(page, callback){
         var params = {
-            page: page,
+            page,
             tab: 'all',
-            success: success,
-            error: error
+            success,
+            error
         }, that = this;
         function success(res){
             console.log(res);
@@ -43,6 +45,8 @@ export default {
         ptrContent.on('refresh', function (e) {
             that.getTopics(1, function(res){
                 res.data = that.transformData(res.data);
+                console.log('数据：')
+                console.log(res)
                 var topicsTpl = Tool.renderTpl(mainHtml, res);
                 $('.media-list ul').html('').append($(topicsTpl));
                 myApp.pullToRefreshDone();

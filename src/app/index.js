@@ -20,6 +20,7 @@ var app = {
         window.myApp = new Framework7({
             // Enable Material theme
             material: true,
+            pushState: true,
         });
         myApp.addView('.view-main', {
             domCache: true
